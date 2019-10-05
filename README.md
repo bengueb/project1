@@ -1,4 +1,4 @@
-# project1
+# Project 1
 
 **Project Title:** Brew Me
 
@@ -12,7 +12,8 @@ Our application is going to take inputs such a s a brewery name, location (poten
 
 **Sketch and Design**
 
-
+![GitHub Logo](/assets/images/roughdraft.png)
+Format: ![Alt Text](url)
 
 
 **APIs being Used**
