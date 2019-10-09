@@ -1,5 +1,5 @@
 function findBreweriesByNeiborhood(longitude, latitude) {
-    let queryURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + longitude + ',' + latitude + '&radius=3000&keyword=breweries&key=AIzaSyCT8iFhwZiyzWRzWbplNt4gzAaMuSf14Bg';
+    let queryURL = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=' + longitude + ',' + latitude + '&radius=3000&keyword=breweries&';
 
     $.ajax({
         url: queryURL,
