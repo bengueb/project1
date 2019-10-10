@@ -1,8 +1,23 @@
 #title{
     text-align: center;
+    padding: 20px;
+    border: 10px;
 
 }
 
 body{
-    background-color: #A85C1C;
+    background-image: url("../images/beer.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#searchbar{
+    float:left;
+    size: 50%;
+
+}
+
+#locationDropDown{
+    float:left;
+    size:50%
 }
