@@ -15,13 +15,13 @@ $(document).ready(function(){
             console.log(responseBody);
 
             var newBrewSection = $('<div>').append(
-                $('<p>').text(responseBody[0].name),
-                $('<p>').text(responseBody[0].street),
-                $('<p>').text(responseBody[0].city),
-                $('<p>').text(responseBody[0].state),
-                $('<p>').text(responseBody[0].postal_code),
-                $('<p>').text(responseBody[0].phone),
-                $('<p>').text(responseBody[0].website_url)
+                $('<p>').text('Brewery Name: ' + responseBody[0].name),
+                $('<p>').text('Address: ' + responseBody[0].street),
+                $('<p>').text('City: ' + responseBody[0].city),
+                $('<p>').text('State: ' + responseBody[0].state),
+                $('<p>').text('Postal Code: ' + responseBody[0].postal_code),
+                $('<p>').text('Phone: ' + responseBody[0].phone),
+                $('<p>').text('Site: ' + responseBody[0].website_url)
             )
 
             $('#results').append(newBrewSection);
@@ -31,10 +31,10 @@ $(document).ready(function(){
         
     }
     
-    $('#brew-me-btn').on('click', function(event){
+    $('#brewMe').on('click', function(event){
 
         event.preventDefault();
-        
+
         $('#results').empty();
 
         var breweryName = $('#brew-search').val().trim();
