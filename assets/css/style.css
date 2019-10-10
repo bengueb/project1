@@ -11,13 +11,28 @@ body{
     background-size: cover;
 }
 
-#searchbar{
-    float:left;
+#searchArea{
+    
     size: 50%;
+    padding:20px;
+    margin:10px;
+    text-align: center;
+
 
 }
 
-#locationDropDown{
-    float:left;
-    size:50%
+#dropDown{
+
+    padding:20px;
+    margin:10px;
+    text-align: center;
+   
 }
+
+
+div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text" id="inputGroup-sizing-default">Brewery Name</span>
+                         </div>
+                         <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                  </div>
