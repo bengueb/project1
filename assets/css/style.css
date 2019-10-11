@@ -21,3 +21,8 @@ body{
     float:left;
     size:50%
 }
+
+#results {
+    height: 400px;  
+    width: 800px;  
+}
