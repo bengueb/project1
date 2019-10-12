@@ -6,7 +6,7 @@ let breweries = [];
 function initialize() {
     let neighborhood = new google.maps.LatLng(47.608013,-122.335167);
 
-    map = new google.maps.Map(document.getElementById('results'), {
+    map = new google.maps.Map(document.getElementById('map-results'), {
         center: neighborhood,
         zoom: 12
     });
@@ -14,7 +14,7 @@ function initialize() {
 
 function getLocation(name) {
     let seattle = google.maps.LatLng(47.608013,-122.335167)
-    map = new google.maps.Map(document.getElementById('results'), {
+    map = new google.maps.Map(document.getElementById('map-results'), {
         center: seattle,
         zoom: 12
     });
@@ -34,12 +34,12 @@ function getBreweries(longitude, latitude) {
 
     map = new google.maps.Map(document.getElementById('results'), {
         center: neighborhood,
-        zoom: 12
+        zoom: 13
     });
 
     let request = {
         location: neighborhood,
-        radius: '5000',
+        radius: '2000',
         type: ['bar'],
         keyword: ['brewery']
     };
