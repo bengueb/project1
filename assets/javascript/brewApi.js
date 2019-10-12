@@ -1,18 +1,22 @@
 // Function for AJAX call to Brewery DB API
 $(document).ready(function(){
+     
+    var brewId = [];
 
+    var key = 'd3ce3953f3ce707f75971d6af7b1053c';
+    var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
+
+    // AJAX call to retrieve data regarding the brewery
     function displayBreweryInfo (arr){
 
-        var queryURL = "https://api.openbrewerydb.org/breweries?by_name=" + arr;
-        // var queryURL = "https://api.openbrewerydb.org/breweries?by_name=fremont%20brewing";
+        var queryURL = 'https://api.openbrewerydb.org/breweries?by_name=' + arr;
     
         $.ajax({
             url: queryURL,
-            method: "GET"
+            method: 'GET'
         }).then(function (response){
             
             var responseBody = response;
-            console.log(responseBody);
 
             var newBrewSection = $('<div>').append(
                 $('<p>').text('Brewery Name: ' + responseBody[0].name),
@@ -31,6 +35,57 @@ $(document).ready(function(){
         
     }
     
+    // AJAX call to get beer list from a particular brewery
+    function getBrewery (arr) {
+
+        // var queryURL = 'https://sandbox-api.brewerydb.com/v2/breweries?key=' + key + '&name=Harmon%20Brewing%20Company';
+        var queryURL = 'https://sandbox-api.brewerydb.com/v2/breweries?key=' + key + '&name=' + encodeURI(arr);
+
+        $.ajax({
+            url:queryURL,
+            method: 'GET',
+            success: function(response) {
+                handleResponse(response);
+            }
+        });
+    }
+
+    function handleResponse(response){
+
+        var responseBody = JSON.stringify(response);
+        var obj = JSON.parse(responseBody);
+            
+        brewId.push(obj.data[0].id);
+
+        console.log(brewId);
+
+        getBeerList(brewId);
+
+    }
+
+    function getBeerList (arr){
+
+        var queryURL = baseUrl + 'brewery/' + brewId + '/beers?key=' + key;
+        console.log(queryURL);
+
+        $.ajax({
+            url: queryURL,
+            method: 'GET',
+            success: function(response){
+                console.log(response);
+            }
+        });
+        
+    }
+
+    function displayBeerList(response){
+
+        var responseBody = response;
+
+        var newBeerSection =  
+    }
+
+    // Event listner for brewMe button
     $('#brewMe').on('click', function(event){
 
         event.preventDefault();
@@ -38,11 +93,12 @@ $(document).ready(function(){
         $('#results').empty();
 
         var breweryName = $('#brew-search').val().trim();
-        console.log(breweryName);
 
         displayBreweryInfo(breweryName);
-
+        getBrewery(breweryName);
+        
 
     });
 
+    
 });
