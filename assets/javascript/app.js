@@ -1,3 +1,10 @@
 'use strict';
 
-getBreweries(47.6792172,-122.3860312);
+
+$(document).ready(function() {
+    $('.dropdown-item').on('click', function(event) {
+        let longitude = $(event.target).data('long');
+        let latitude = $(event.target).data('lat');
+        getBreweries(longitude, latitude);
+    });
+});
