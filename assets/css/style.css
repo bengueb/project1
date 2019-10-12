@@ -11,18 +11,29 @@ body{
     background-size: cover;
 }
 
-#searchbar{
-    float:left;
+#searchArea{
+    
     size: 50%;
+    padding:20px;
+    margin:10px;
+    text-align: center;
+
 
 }
 
-#locationDropDown{
-    float:left;
-    size:50%
+#dropDown{
+
+    padding:20px;
+    margin:10px;
+    text-align: center;
+   
 }
 
 #results {
     height: 400px;  
     width: 800px;  
+}
+
+.place-image {
+    width: 100%;
 }
