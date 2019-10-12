@@ -1,18 +1,27 @@
+// Initialize variables
 let map;
 let service;
 let infowindow;
 let breweries = [];
 
+/**
+ * Create an initial map centered at Seattle.
+ */
 function initialize() {
     let neighborhood = new google.maps.LatLng(47.608013,-122.335167);
 
     map = new google.maps.Map(document.getElementById('map-results'), {
         center: neighborhood,
-        zoom: 12
+        zoom: 10
     });
 }
 
-function getLocation(name) {
+/**
+ * Get new map searching for brewery by given name.
+ * Centers map around location found by the search query result.
+ * @param {String} name 
+ */
+function getBreweryByName(name) {
     let seattle = google.maps.LatLng(47.608013,-122.335167)
     map = new google.maps.Map(document.getElementById('map-results'), {
         center: seattle,
@@ -26,9 +35,31 @@ function getLocation(name) {
 
     infowindow = new google.maps.InfoWindow();
     service = new google.maps.places.PlacesService(map);
-    service.findPlaceFromQuery(request, callback);
+    service.findPlaceFromQuery(request, nameCallback);
 }
 
+/**
+ * Callback function returning an object containing information about the location/s found by getBreweryByName.
+ * @param {Object} results 
+ * @param {String} status 
+ */
+function nameCallback(results, status) {
+    console.log(status)
+    if (status == google.maps.places.PlacesServiceStatus.OK) {
+        for (let i = 0; i < results.length; i++) {
+            let place = results[i];
+            createMarker(results[i]);
+        }
+    }
+    map.setCenter(results[0].geometry.location);
+}
+
+/**
+ * Get new map searching for breweries around a given longitude and latitude.
+ * Centers map around given longitude and latitude.
+ * @param {Int} longitude 
+ * @param {Int} latitude 
+ */
 function getBreweries(longitude, latitude) {
     let neighborhood = new google.maps.LatLng(longitude, latitude);
 
@@ -46,11 +77,15 @@ function getBreweries(longitude, latitude) {
 
     infowindow = new google.maps.InfoWindow();
     service = new google.maps.places.PlacesService(map);
-    service.nearbySearch(request, callback);
+    service.nearbySearch(request, getBreweriesCallback);
 }
 
-function callback(results, status) {
-    console.log(results)
+/**
+ * Callback function returning an object containing information about the location/s found by getBreweries.
+ * @param {Object} results 
+ * @param {String} status 
+ */
+function getBreweriesCallback(results, status) {
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (let i = 0; i < results.length; i++) {
             let place = results[i];
@@ -62,6 +97,10 @@ function callback(results, status) {
     });
 }
 
+/**
+ * Creates a new marker on the map and adds an onclick function setting InfoWindow content.
+ * @param {Object} place 
+ */
 function createMarker(place) {
     let marker = new google.maps.Marker({
         map: map,
