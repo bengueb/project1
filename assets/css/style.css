@@ -38,4 +38,20 @@ body{
     width: 100%;
 }
 
+#resultsArea{
+    padding:20px;
+    border: 10px;
+    background-color: rgba(245,245,245, .5);
+   
 
+}
+
+#results{
+   width: 50%;
+
+
+}
+
+#beerlist-results{
+   width: 50%;
+}
