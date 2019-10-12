@@ -86,6 +86,7 @@ function getBreweries(longitude, latitude) {
  * @param {String} status 
  */
 function getBreweriesCallback(results, status) {
+    console.log(results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (let i = 0; i < results.length; i++) {
             let place = results[i];
@@ -107,10 +108,11 @@ function createMarker(place) {
         position: place.geometry.location
     });
 
-    google.maps.event.addListener(marker, 'click', function() {
+    google.maps.event.addListener(marker, 'mouseover', function() {
         let name = '<h3>' + place.name + '</h3>';
-        let address = '<p>' + place.vicinity + '</p>';
-        let picture = '<img class="place-image" src="' + place.photos[0].getUrl() + '" />'
+        let address = '<p><i class="fas fa-map-marker-alt"></i> ' + place.vicinity + '</p>';
+        let hours = '<p>' + place.opening_hours + '</p>'
+        let picture = '<img class="place-image" src="' + place.photos[0].getUrl() + '" />';
         let containerBeginning = '<div class="container">';
         let columns = '<div class="row"><div class="col-6">' + name + address + '</div><div class="col-6">' + picture + '</div></div>';
         let containerEnd = '</div class="container">' 

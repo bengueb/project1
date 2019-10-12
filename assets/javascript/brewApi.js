@@ -20,6 +20,7 @@ $(document).ready(function(){
 
         displayBreweryInfo(breweryName);
         getBrewery(breweryName);
+        getBreweryByName(breweryName)
         
 
     });
@@ -50,7 +51,7 @@ $(document).ready(function(){
         )
 
         newBrewSection.attr('id','brewery-result');
-        $('#results').append(newBrewSection);
+        $('#bearlist-results').append(newBrewSection);
     
     });
 
@@ -108,7 +109,7 @@ function displayBeerList(response){
         beerName = responseBody.data[i].name;
         console.log(beerName);  
 
-        $('#beerlist-result > ').append('<p>' + beerName + '</p>');
+        $('#beerlist-results').append('<p>' + beerName + '</p>');
 
     }
     
