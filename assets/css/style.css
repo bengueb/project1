@@ -11,23 +11,23 @@ body{
     background-size: cover;
 }
 
-#searchArea{
-    
-    size: 50%;
-    padding:20px;
-    margin:10px;
+
+.input-group{
+    width: 40%;
     text-align: center;
-
-
+    padding: 20px;
+    margin:10px;
 }
-
+.button{
+    color: aliceblue;
+}
 #dropDown{
-
     padding:20px;
     margin:10px;
     text-align: center;
    
 }
+
 
 #results {
     height: 400px;  
@@ -37,3 +37,5 @@ body{
 .place-image {
     width: 100%;
 }
+
+
