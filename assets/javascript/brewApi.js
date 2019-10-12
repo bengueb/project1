@@ -2,7 +2,8 @@
 $(document).ready(function(){
      
     var brewId = [];
-
+    var beerName = '';
+    var i, obj;
     var key = 'd3ce3953f3ce707f75971d6af7b1053c';
     var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
 
@@ -28,6 +29,7 @@ $(document).ready(function(){
                 $('<p>').text('Site: ' + responseBody[0].website_url)
             )
 
+            newBrewSection.attr('id','brewery-result');
             $('#results').append(newBrewSection);
         
         });
@@ -53,7 +55,7 @@ $(document).ready(function(){
     function handleResponse(response){
 
         var responseBody = JSON.stringify(response);
-        var obj = JSON.parse(responseBody);
+        obj = JSON.parse(responseBody);
             
         brewId.push(obj.data[0].id);
 
@@ -72,7 +74,7 @@ $(document).ready(function(){
             url: queryURL,
             method: 'GET',
             success: function(response){
-                console.log(response);
+                displayBeerList(response);
             }
         });
         
@@ -82,7 +84,14 @@ $(document).ready(function(){
 
         var responseBody = response;
 
-        var newBeerSection =  
+        for (i in responseBody.data){
+            beerName = responseBody.data[i].name;
+            console.log(beerName);  
+
+            $('#beerlist-result > ').append('<p>' + beerName + '</p>');
+
+        }
+        
     }
 
     // Event listner for brewMe button
