@@ -12,6 +12,23 @@ function initialize() {
     });
 }
 
+function getLocation(name) {
+    let seattle = google.maps.LatLng(47.608013,-122.335167)
+    map = new google.maps.Map(document.getElementById('results'), {
+        center: seattle,
+        zoom: 12
+    });
+
+    let request = {
+        query: name,
+        fields: ['formatted_address', 'geometry', 'icon', 'name', 'permanently_closed', 'photos', 'place_id', 'plus_code', 'types'],
+    };
+
+    infowindow = new google.maps.InfoWindow();
+    service = new google.maps.places.PlacesService(map);
+    service.findPlaceFromQuery(request, callback);
+}
+
 function getBreweries(longitude, latitude) {
     let neighborhood = new google.maps.LatLng(longitude, latitude);
 
