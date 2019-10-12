@@ -27,3 +27,15 @@ body{
     text-align: center;
    
 }
+
+
+#results {
+    height: 400px;  
+    width: 800px;  
+}
+
+.place-image {
+    width: 100%;
+}
+
+
