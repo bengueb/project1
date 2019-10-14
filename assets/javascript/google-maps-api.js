@@ -44,7 +44,6 @@ function getBreweryByName(name) {
  * @param {String} status 
  */
 function nameCallback(results, status) {
-    console.log(status)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (let i = 0; i < results.length; i++) {
             let place = results[i];
@@ -63,16 +62,16 @@ function nameCallback(results, status) {
 function getBreweries(longitude, latitude) {
     let neighborhood = new google.maps.LatLng(longitude, latitude);
 
-    map = new google.maps.Map(document.getElementById('results'), {
+    map = new google.maps.Map(document.getElementById('map-results'), {
         center: neighborhood,
         zoom: 13
     });
 
     let request = {
         location: neighborhood,
-        radius: '2000',
+        radius: '1500',
         type: ['bar'],
-        keyword: ['brewery']
+        keyword: ['brewery', 'brewing']
     };
 
     infowindow = new google.maps.InfoWindow();
@@ -86,11 +85,12 @@ function getBreweries(longitude, latitude) {
  * @param {String} status 
  */
 function getBreweriesCallback(results, status) {
-    console.log(results)
     if (status == google.maps.places.PlacesServiceStatus.OK) {
         for (let i = 0; i < results.length; i++) {
             let place = results[i];
-            createMarker(results[i]);
+            window.setTimeout(function() {
+                createMarker(results[i]);
+            }, i * 200);
         }
     }
     results.forEach(function(result) {
@@ -103,20 +103,43 @@ function getBreweriesCallback(results, status) {
  * @param {Object} place 
  */
 function createMarker(place) {
+    let customMarker = {
+        path: 'M 13,35 C13,35 27,21 27,13 C27,6 21,0 13,0 C6,0 0,6 0,13 C0,21 13,35 13,35 z',
+        fillColor: 'red',
+        fillOpacity: 1.0,
+        scale: .9,
+        strokeColor: 'black',
+        strokeWeight: 1.5
+    };
     let marker = new google.maps.Marker({
         map: map,
+        icon: customMarker,
+        animation: google.maps.Animation.DROP,
         position: place.geometry.location
     });
 
-    google.maps.event.addListener(marker, 'mouseover', function() {
-        let name = '<h3>' + place.name + '</h3>';
-        let address = '<p><i class="fas fa-map-marker-alt"></i> ' + place.vicinity + '</p>';
-        let hours = '<p>' + place.opening_hours + '</p>'
-        let picture = '<img class="place-image" src="' + place.photos[0].getUrl() + '" />';
-        let containerBeginning = '<div class="container">';
-        let columns = '<div class="row"><div class="col-6">' + name + address + '</div><div class="col-6">' + picture + '</div></div>';
-        let containerEnd = '</div class="container">' 
-        infowindow.setContent(containerBeginning + columns + containerEnd);
-        infowindow.open(map, marker);
+    let request = {
+        placeId: place.place_id
+    };
+
+    service.getDetails(request, function(result, status) {
+        console.log(result)
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            let name = '<h3>' + result.name + '</h3>';
+            let address = '<p><i class="fas fa-map-marker-alt"></i> ' + result.formatted_address + '</p>';
+            var date = new Date();
+            let hours = '<p><i class="fas fa-clock"></i> ' + result.opening_hours.weekday_text[date.getDay()] + '</p>';
+            let phoneNumber = '<p><i class="fas fa-phone"></i> ' + result.formatted_phone_number + '</p>';
+            let picture = '<img class="place-image" src="' + result.photos[0].getUrl() + '" />';
+            let containerBeginning = '<div class="container">';
+            let columns = '<div class="row"><div class="col-6">' + name + address + hours + phoneNumber + '</div><div class="col-6">' + picture + '</div></div>';
+            let containerEnd = '</div class="container">' 
+            infowindow.setContent(containerBeginning + columns + containerEnd);
+            infowindow.open(map, marker);
+        });
     });
+
+
+    
+   
 }

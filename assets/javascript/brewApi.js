@@ -1,20 +1,16 @@
+var brewId = [];
+var beerName = '';
+var i, obj;
+var key = 'd3ce3953f3ce707f75971d6af7b1053c';
+var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
+
 // Function for AJAX call to Brewery DB API
 $(document).ready(function(){
-     
-    var brewId = [];
-    var beerName = '';
-    var i, obj;
-    var key = 'd3ce3953f3ce707f75971d6af7b1053c';
-    var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
-
-   
-
+  
     // Event listner for brewMe button
     $('#brewMe').on('click', function(event){
 
         event.preventDefault();
-
-        $('#results').empty();
 
         var breweryName = $('#brew-search').val().trim();
 
@@ -22,10 +18,8 @@ $(document).ready(function(){
         getBrewery(breweryName);
         getBreweryByName(breweryName)
         
-
     });
-
-    
+ 
 });
 
  // AJAX call to retrieve data regarding the brewery
@@ -51,7 +45,7 @@ $(document).ready(function(){
         )
 
         newBrewSection.attr('id','brewery-result');
-        $('#bearlist-results').append(newBrewSection);
+        $('#bearlist-result').append(newBrewSection);
     
     });
 
@@ -109,7 +103,7 @@ function displayBeerList(response){
         beerName = responseBody.data[i].name;
         console.log(beerName);  
 
-        $('#beerlist-results').append('<p>' + beerName + '</p>');
+        $('#beerlist-result').append('<p>' + beerName + '</p>');
 
     }
     
