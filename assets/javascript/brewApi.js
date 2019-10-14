@@ -1,13 +1,5 @@
 // Function for AJAX call to Brewery DB API
 $(document).ready(function(){
-     
-    var brewId = [];
-    var beerName = '';
-    var i, obj;
-    var key = 'd3ce3953f3ce707f75971d6af7b1053c';
-    var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
-
-   
 
     // Event listner for brewMe button
     $('#brewMe').on('click', function(event){
@@ -27,6 +19,14 @@ $(document).ready(function(){
     
 });
 
+var brewId = [];
+var beerName = '';
+var i, obj;
+var key = 'd3ce3953f3ce707f75971d6af7b1053c';
+var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
+
+
+
  // AJAX call to retrieve data regarding the brewery
  function displayBreweryInfo (arr){
 
@@ -39,6 +39,13 @@ $(document).ready(function(){
         
         var responseBody = response;
 
+        var beerListModal = $('<button>');
+        beerListModal.attr('type', 'button');
+        beerListModal.addClass('btn btn-primary beer-list-btn');
+        beerListModal.attr('data-toggle', 'modal');
+        beerListModal.attr('data-target', '#beer-list-modal');
+        beerListModal.text('Beer List');
+
         var newBrewSection = $('<div>').append(
             $('<p>').text('Brewery Name: ' + responseBody[0].name),
             $('<p>').text('Address: ' + responseBody[0].street),
@@ -46,11 +53,14 @@ $(document).ready(function(){
             $('<p>').text('State: ' + responseBody[0].state),
             $('<p>').text('Postal Code: ' + responseBody[0].postal_code),
             $('<p>').text('Phone: ' + responseBody[0].phone),
-            $('<p>').text('Site: ' + responseBody[0].website_url)
+            $('<p>').text('Site: ' + responseBody[0].website_url),
+            beerListModal
         )
 
+        
+
         newBrewSection.attr('id','brewery-result');
-        $('#results').append(newBrewSection);
+        $('#resultsArea').prepend(newBrewSection);
     
     });
 
@@ -108,8 +118,8 @@ function displayBeerList(response){
         beerName = responseBody.data[i].name;
         console.log(beerName);  
 
-        $('#beerlist-result > ').append('<p>' + beerName + '</p>');
-
+        // $('#beerlist-result').append('<p>' + beerName + '</p>');
+        $('.modal-body').append('<p>' + beerName + '</p>');
     }
     
 }

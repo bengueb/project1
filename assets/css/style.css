@@ -55,3 +55,7 @@ body{
 #beerlist-results{
    width: 50%;
 }
+
+.beer-list-btn{
+    display: inline-block;
+}
