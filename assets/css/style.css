@@ -59,3 +59,8 @@ body{
 .beer-list-btn{
     display: inline-block;
 }
+
+.modal-body{
+    max-height: 300px;
+    overflow-y: auto;
+}

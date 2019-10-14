@@ -117,9 +117,24 @@ function displayBeerList(response){
     for (i in responseBody.data){
         beerName = responseBody.data[i].name;
         console.log(beerName);  
-
+        for (j in responseBody.data){
+            abv = responseBody.data[i].abv;
+            console.log(abv);
+        }
+    
+    var beerListTable = function(){
+        
+        var tRow = $('<tr>');
+        var beerTd = $('<td>').text(beerName);
+        var abvTd = $('<td>').text(abv);
+        tRow.append(beerTd, abvTd);
+        $('#beer-table').append(tRow);
+    }
         // $('#beerlist-result').append('<p>' + beerName + '</p>');
-        $('.modal-body').append('<p>' + beerName + '</p>');
+        // $('.modal-body').append('<p>' + beerName + '</p>');
+        $('#beer-table > tbody').append(beerListTable());
+
+        
     }
     
 }
