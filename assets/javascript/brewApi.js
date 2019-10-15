@@ -153,12 +153,7 @@ function displayBeerList(response){
        
         $('#beer-table > tbody').append(beerListTable());
 
-<<<<<<< HEAD
         
-=======
-        $('#beerlist-result').append('<p>' + beerName + '</p>');
-
->>>>>>> 02789279443b36321e1c985b319d0470ec0ed1ed
     }
     
 }
