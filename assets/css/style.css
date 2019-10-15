@@ -27,6 +27,7 @@ body{
     padding:20px;
     margin:10px;
     text-align: center;
+   
 }
 
 
@@ -54,7 +55,8 @@ body{
 #beerlist-result{
    width: 50%;
    float:right;
-   display: inline-block
+   display: inline-block;
+   background-color:  rgba(245,245,245, .9);
 }
 
 .btn{
@@ -71,6 +73,7 @@ body{
   }
 .beer-list-btn{
     display: inline-block;
+    background-color: rgb(212, 135, 45);
 }
 
 /* .modal-body{
