@@ -31,8 +31,8 @@ body{
 }
 
 
-#results {
-    height: 400px;  
+#map-results {
+    height: 450px;  
     width: 800px;  
 }
 
@@ -44,14 +44,10 @@ body{
     padding:20px;
     border: 10px;
     background-color: rgba(245,245,245, .5);
-   
-
 }
 
-#results{
+#map-results{
    width: 50%;
-
-
 }
 
 #beerlist-results{
