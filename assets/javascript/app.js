@@ -13,7 +13,7 @@ $(document).ready(function() {
 
         event.preventDefault();
 
-        $('#results').empty();
+        $('#brewery-result').empty();
 
         var breweryName = $('#brew-search').val().trim();
 
