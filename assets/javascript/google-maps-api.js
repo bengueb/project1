@@ -26,7 +26,7 @@ function getBreweryByName(name) {
     clearMarkers();
     let seattle = google.maps.LatLng(47.608013,-122.335167)
     map.setCenter(seattle);
-    maps.setZoom(12);
+    map.setZoom(12);
 
     let request = {
         query: name,
