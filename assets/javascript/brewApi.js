@@ -1,19 +1,45 @@
+<<<<<<< HEAD
 
 // Variables
 ////////////////////////////////////////////////////////////////////////////
 
+=======
+>>>>>>> 02789279443b36321e1c985b319d0470ec0ed1ed
 var brewId = [];
 var beerName = '';
 var i, obj;
 var key = 'd3ce3953f3ce707f75971d6af7b1053c';
 var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
+<<<<<<< HEAD
+=======
+
+// Function for AJAX call to Brewery DB API
+$(document).ready(function(){
+  
+    // Event listner for brewMe button
+    $('#brewMe').on('click', function(event){
+>>>>>>> 02789279443b36321e1c985b319d0470ec0ed1ed
 
 
+<<<<<<< HEAD
 // Functions
 ///////////////////////////////////////////////////////////////////////////
 
 
  // AJAX call to retrieve data regarding the brewery using OpenBrewery DB API
+=======
+        var breweryName = $('#brew-search').val().trim();
+
+        displayBreweryInfo(breweryName);
+        getBrewery(breweryName);
+        getBreweryByName(breweryName)
+        
+    });
+ 
+});
+
+ // AJAX call to retrieve data regarding the brewery
+>>>>>>> 02789279443b36321e1c985b319d0470ec0ed1ed
  function displayBreweryInfo (arr){
 
     var queryURL = 'https://api.openbrewerydb.org/breweries?by_name=' + arr;
@@ -46,7 +72,11 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
         
 
         newBrewSection.attr('id','brewery-result');
+<<<<<<< HEAD
         $('#resultsArea').prepend(newBrewSection);
+=======
+        $('#bearlist-result').append(newBrewSection);
+>>>>>>> 02789279443b36321e1c985b319d0470ec0ed1ed
     
     });
 
@@ -123,7 +153,12 @@ function displayBeerList(response){
        
         $('#beer-table > tbody').append(beerListTable());
 
+<<<<<<< HEAD
         
+=======
+        $('#beerlist-result').append('<p>' + beerName + '</p>');
+
+>>>>>>> 02789279443b36321e1c985b319d0470ec0ed1ed
     }
     
 }
