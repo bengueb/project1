@@ -27,7 +27,6 @@ body{
     padding:20px;
     margin:10px;
     text-align: center;
-   
 }
 
 
@@ -57,3 +56,13 @@ body{
 #beerlist-results{
    width: 50%;
 }
+
+.btn{
+  background-color: rgb(212, 135, 45);
+  color: whitesmoke;
+}
+
+.input-group-text{
+    background-color: rgb(212, 135, 45);
+    color:whitesmoke;
+  }
