@@ -7,4 +7,20 @@ $(document).ready(function() {
         let latitude = $(event.target).data('lat');
         getBreweries(longitude, latitude);
     });
+
+     // Event listner for brewMe button
+     $('#brewMe').on('click', function(event){
+
+        event.preventDefault();
+
+        $('#results').empty();
+
+        var breweryName = $('#brew-search').val().trim();
+
+        displayBreweryInfo(breweryName);
+        getBrewery(breweryName);
+        getBreweryByName(breweryName);
+        
+
+    });
 });

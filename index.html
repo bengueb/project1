@@ -4,8 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/ee87894be9.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link
         href="https://fonts.googleapis.com/css?family=Bevan|Chela+One|Cherry+Swash:700|Oleo+Script+Swash+Caps:700&display=swap"
@@ -22,12 +22,14 @@
         </div>
         <container id="searchArea">
             <div id="searchBar"></div>
+
             <div class="input-group mb-3 mx-auto">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Brewery Name</span>
                 </div>
                 <input type="text" class="form-control" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default">
+
 
                 <button type="button" class="btn btn-secondary" class="button-color" id="brewMe">Brew Me!</button>
                 <div id="locationDropDown">
@@ -63,6 +65,34 @@
         <container id="resultsArea" class="card">
             <div id="map-results"></div>
             <div id="beerlist-result"></div>
+
+            <!-- Modal -->
+<div class="modal fade" id="beer-list-modal" tabindex="-1" role="dialog" aria-labelledby="beer-list-modal-Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">BEER LIST</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <table class="table" id="beer-table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>ABV</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
         </container>
 
 
@@ -83,9 +113,7 @@
         crossorigin="anonymous"></script>
     <script type='text/javascript' src="assets/javascript/google-maps-api.js"></script>
     <script type='text/javascript' src="assets/javascript/brewApi.js"></script>
-    <script
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHvnZgnOG68IPJoKp5zZLwCcLaQbcGx4A&libraries=places&callback=initialize"
-        async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Qp8udIJnIp6sPUyd2hCsZEVxwP4i9aU&libraries=places&callback=initialize" async defer></script>
     <script type='text/javascript' src="assets/javascript/app.js"></script>
 
 </body>
