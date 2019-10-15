@@ -51,9 +51,10 @@ body{
    float:left;
 }
 
-#beerlist-results{
+#beerlist-result{
    width: 50%;
    float:right;
+   display: inline-block
 }
 
 .btn{
@@ -72,7 +73,12 @@ body{
     display: inline-block;
 }
 
-.modal-body{
+/* .modal-body{
     max-height: 300px;
+    overflow-y: auto;
+} */
+
+#beer-list-modal{
+    max-height: 350px;
     overflow-y: auto;
 }
