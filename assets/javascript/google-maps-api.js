@@ -62,11 +62,13 @@ function nameCallback(results, status) {
 function getBreweries(longitude, latitude) {
     let neighborhood = new google.maps.LatLng(longitude, latitude);
 
+    // Create a new map centered around the chose neighborhood
     map = new google.maps.Map(document.getElementById('map-results'), {
         center: neighborhood,
         zoom: 13
     });
 
+    // Set request parameters
     let request = {
         location: neighborhood,
         radius: '1500',
@@ -111,6 +113,8 @@ function createMarker(place) {
         strokeColor: 'black',
         strokeWeight: 1.5
     };
+
+    // Create a new Marker
     let marker = new google.maps.Marker({
         map: map,
         icon: customMarker,
@@ -122,6 +126,7 @@ function createMarker(place) {
         placeId: place.place_id
     };
 
+    // Make a call to the places API to get more details about a given brewery
     service.getDetails(request, function(result, status) {
         console.log(result)
         google.maps.event.addListener(marker, 'mouseover', function() {
@@ -130,9 +135,10 @@ function createMarker(place) {
             var date = new Date();
             let hours = '<p><i class="fas fa-clock"></i> ' + result.opening_hours.weekday_text[date.getDay()] + '</p>';
             let phoneNumber = '<p><i class="fas fa-phone"></i> ' + result.formatted_phone_number + '</p>';
+            let website = '<p><i class="fas fa-window-maximize"></i> ' + result.website + '</p>';
             let picture = '<img class="place-image" src="' + result.photos[0].getUrl() + '" />';
             let containerBeginning = '<div class="container">';
-            let columns = '<div class="row"><div class="col-6">' + name + address + hours + phoneNumber + '</div><div class="col-6">' + picture + '</div></div>';
+            let columns = '<div class="row"><div class="col-6">' + name + address + hours + phoneNumber + website + '</div><div class="col-6">' + picture + '</div></div>';
             let containerEnd = '</div class="container">' 
             infowindow.setContent(containerBeginning + columns + containerEnd);
             infowindow.open(map, marker);
