@@ -4,7 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/ee87894be9.js"></script>
     <link rel="stylesheet" href="assets/css/style.css">
     <link
@@ -24,19 +25,20 @@
             <div id="searchBar"></div>
 
             <div class="input-group mb-3 mx-auto">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Brewery Name</span>
-                </div>
                 <input type="text" class="form-control" aria-label="Sizing example input"
-                    aria-describedby="inputGroup-sizing-default">
+                    aria-describedby="inputGroup-sizing-default" placeholder="Enter Brewery Name">
 
-
-                <button type="button" class="btn btn-secondary" class="button-color" id="brewMe">Brew Me!</button>
+                <button type="button" class="btn btn-secondary"  id="brewMe">Brew Me!</button>
+            </div>
+            
+         
+        
+            <div class="input-group mb-3 mx-auto">
                 <div id="locationDropDown">
                     <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" class="button-color" type="button"
+                        <button class="btn btn-secondary dropdown-toggle"  type="button"
                             id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Location Choices
+                            Find Breweries in Your Neighborhood!
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item" href="#" data-long="47.6792" data-lat="-122.3860">Ballard</a>
@@ -49,8 +51,7 @@
                             <a class="dropdown-item" href="#" data-long="47.6798" data-lat="-122.3258">Greenlake</a>
                             <a class="dropdown-item" href="#" data-long="47.7086" data-lat="-122.3232">Northgate</a>
                             <a class="dropdown-item" href="#" data-long="47.6084" data-lat="-122.3405">Pike Place</a>
-                            <a class="dropdown-item" href="#" data-long="47.6015" data-lat="-122.3343">Pioneer
-                                Square</a>
+                            <a class="dropdown-item" href="#" data-long="47.6015" data-lat="-122.3343">Pioneer Square</a>
                             <a class="dropdown-item" href="#" data-long="47.6323" data-lat="-122.3569">Queen Anne</a>
                             <a class="dropdown-item" href="#" data-long="47.5830" data-lat="-122.3348">SoDo</a>
                             <a class="dropdown-item" href="#" data-long="47.5667" data-lat="-122.3868">West Seattle</a>
@@ -67,54 +68,57 @@
             <div id="beerlist-result"></div>
 
             <!-- Modal -->
-<div class="modal fade" id="beer-list-modal" tabindex="-1" role="dialog" aria-labelledby="beer-list-modal-Label" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">BEER LIST</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <table class="table" id="beer-table">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Name</th>
-                        <th>ABV</th>
-                    </tr>
-                </thead>
-                <tbody></tbody>
-            </table>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
+            <div class="modal fade" id="beer-list-modal" tabindex="-1" role="dialog"
+                aria-labelledby="beer-list-modal-Label" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">BEER LIST</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table" id="beer-table">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>ABV</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </container>
 
 
 
 
-    </containter>
+        </containter>
 
 
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-        crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-        crossorigin="anonymous"></script>
-    <script type='text/javascript' src="assets/javascript/google-maps-api.js"></script>
-    <script type='text/javascript' src="assets/javascript/brewApi.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Qp8udIJnIp6sPUyd2hCsZEVxwP4i9aU&libraries=places&callback=initialize" async defer></script>
-    <script type='text/javascript' src="assets/javascript/app.js"></script>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+        <script type='text/javascript' src="assets/javascript/google-maps-api.js"></script>
+        <script type='text/javascript' src="assets/javascript/brewApi.js"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC7Qp8udIJnIp6sPUyd2hCsZEVxwP4i9aU&libraries=places&callback=initialize"
+            async defer></script>
+        <script type='text/javascript' src="assets/javascript/app.js"></script>
 
 </body>
 

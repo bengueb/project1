@@ -48,21 +48,25 @@ body{
 
 #map-results{
    width: 50%;
+   float:left;
 }
 
 #beerlist-results{
    width: 50%;
+   float:right;
 }
 
 .btn{
   background-color: rgb(212, 135, 45);
   color: whitesmoke;
   text-align: center;
+  size: 26
+
 }
 
 .input-group-text{
-    background-color: rgb(212, 135, 45);
-    color:whitesmoke;
+    background-color:#CCCCCC;
+    color:black;
   }
 .beer-list-btn{
     display: inline-block;
