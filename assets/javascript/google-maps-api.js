@@ -3,6 +3,7 @@ let map;
 let service;
 let infowindow;
 let breweries = [];
+let markers = [];
 
 /**
  * Create an initial map centered at Seattle.
@@ -22,11 +23,10 @@ function initialize() {
  * @param {String} name 
  */
 function getBreweryByName(name) {
+    clearMarkers();
     let seattle = google.maps.LatLng(47.608013,-122.335167)
-    map = new google.maps.Map(document.getElementById('map-results'), {
-        center: seattle,
-        zoom: 12
-    });
+    map.setCenter(seattle);
+    maps.setZoom(12);
 
     let request = {
         query: name,
@@ -60,13 +60,12 @@ function nameCallback(results, status) {
  * @param {Int} latitude 
  */
 function getBreweries(longitude, latitude) {
+    clearMarkers();
     let neighborhood = new google.maps.LatLng(longitude, latitude);
 
     // Create a new map centered around the chose neighborhood
-    map = new google.maps.Map(document.getElementById('map-results'), {
-        center: neighborhood,
-        zoom: 13
-    });
+    map.setCenter(neighborhood);
+    map.setZoom(12);
 
     // Set request parameters
     let request = {
@@ -122,6 +121,8 @@ function createMarker(place) {
         position: place.geometry.location
     });
 
+    markers.push(marker);
+
     let request = {
         placeId: place.place_id
     };
@@ -144,8 +145,14 @@ function createMarker(place) {
             infowindow.open(map, marker);
         });
     });
+}
 
-
-    
-   
+/**
+ * Clears all markers currently on the map
+ */
+function clearMarkers() {
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers = [];
 }
