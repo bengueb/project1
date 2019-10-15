@@ -99,7 +99,7 @@ function getBeerList (arr){
     
 }
 
-// Function to get current beer list 
+// Function to get current beer list and display it as a table in the beer list modal
 function displayBeerList(response){
 
     var responseBody = response;
