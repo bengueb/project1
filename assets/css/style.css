@@ -53,3 +53,12 @@ body{
 #beerlist-results{
    width: 50%;
 }
+
+.beer-list-btn{
+    display: inline-block;
+}
+
+.modal-body{
+    max-height: 300px;
+    overflow-y: auto;
+}

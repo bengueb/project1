@@ -22,7 +22,11 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text" id="inputGroup-sizing-default">Brewery Name</span>
                          </div>
+<<<<<<< HEAD
+                         <input type="text" class="form-control" id="brew-search" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+=======
                          <input id="brew-search" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+>>>>>>> 02789279443b36321e1c985b319d0470ec0ed1ed
                          <button type="button" class="btn btn-secondary" id="brewMe">Brew Me!</button>
                   </div>
                   
@@ -54,6 +58,34 @@
         <container id="resultsArea" class="card">
             <div id="map-results"></div>
             <div id="beerlist-result"></div>
+
+            <!-- Modal -->
+<div class="modal fade" id="beer-list-modal" tabindex="-1" role="dialog" aria-labelledby="beer-list-modal-Label" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">BEER LIST</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <table class="table" id="beer-table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Name</th>
+                        <th>ABV</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
         </container>
         
         
