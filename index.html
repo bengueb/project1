@@ -11,11 +11,6 @@
         href="https://fonts.googleapis.com/css?family=Bevan|Chela+One|Cherry+Swash:700|Oleo+Script+Swash+Caps:700&display=swap"
         rel="stylesheet">
 
-    <!-- Spectre CSS Link
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-exp.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/spectre.css/dist/spectre-icons.min.css"> -->
-
 
     <title>Brew Me</title>
 </head>
@@ -27,39 +22,12 @@
         </div>
         <container id="searchArea">
             <div id="searchBar"></div>
-                 <div class="input-group mb-3 mx-auto">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Brewery Name</span>
-                         </div>
-                         <input type="text" class="form-control" id="brew-search" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-                         <button type="button" class="btn btn-secondary" id="brewMe">Brew Me!</button>
-                  </div>
-                  
-            <div id= "locationDropDown">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Location Choices
-                    </button> 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#" data-long="47.6792" data-lat="-122.3860">Ballard</a>
-                        <a class="dropdown-item" href="#" data-long="47.5526" data-lat="-122.3009">Beacon Hill</a>
-                        <a class="dropdown-item" href="#" data-long="47.6147" data-lat="-122.3448">Belltown</a>
-                        <a class="dropdown-item" href="#" data-long="47.6253" data-lat="-122.3222">Capitol Hill</a>
-                        <a class="dropdown-item" href="#" data-long="47.6050" data-lat="-122.3344">Downtown Seattle</a>
-                        <a class="dropdown-item" href="#" data-long="47.6542" data-lat="-122.3500">Fremont</a>
-                        <a class="dropdown-item" href="#" data-long="47.6798" data-lat="-122.3258">Greenlake</a>
-                        <a class="dropdown-item" href="#" data-long="47.7086" data-lat="-122.3232">Northgate</a>
-                        <a class="dropdown-item" href="#" data-long="47.6084" data-lat="-122.3405">Pike Place</a>
-                        <a class="dropdown-item" href="#" data-long="47.6015" data-lat="-122.3343">Pioneer Square</a>
-                        <a class="dropdown-item" href="#" data-long="47.6323" data-lat="-122.3569">Queen Anne</a>
-                        <a class="dropdown-item" href="#" data-long="47.5830" data-lat="-122.3348">SoDo</a>
-                        <a class="dropdown-item" href="#" data-long="47.5667" data-lat="-122.3868">West Seattle</a>
 
             <div class="input-group mb-3 mx-auto">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Brewery Name</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Sizing example input"
+                <input type="text" class="form-control" id="brew-search" aria-label="Sizing example input"
                     aria-describedby="inputGroup-sizing-default">
 
 
@@ -96,6 +64,7 @@
 
         <container id="resultsArea" class="card">
             <div id="map-results"></div>
+            <div id="beerlist-result"></div>
 
             <!-- Modal -->
 <div class="modal fade" id="beer-list-modal" tabindex="-1" role="dialog" aria-labelledby="beer-list-modal-Label" aria-hidden="true">
@@ -124,25 +93,6 @@
       </div>
     </div>
   </div>
-
-  <!-- New Modal
-  <div class="modal active" id="beer-list-modal">
-    <a href="#close" class="modal-overlay" aria-label="Close"></a>
-    <div class="modal-container">
-      <div class="modal-header">
-        <a href="#close" class="btn btn-clear float-right" aria-label="Close"></a>
-        <div class="modal-title h5">Beer List</div>
-      </div>
-      <div class="modal-body">
-        <div class="content">
-
-        </div>
-      </div>
-      <div class="modal-footer">
-        
-      </div>
-    </div>
-  </div> -->
         </container>
 
 
