@@ -107,7 +107,7 @@ function getBreweriesCallback(results, status) {
 function createMarker(place) {
     let customMarker = {
         path: 'M 13,35 C13,35 27,21 27,13 C27,6 21,0 13,0 C6,0 0,6 0,13 C0,21 13,35 13,35 z',
-        fillColor: 'red',
+        fillColor: 'rgb(212, 135, 45)',
         fillOpacity: 1.0,
         scale: .9,
         strokeColor: 'black',
