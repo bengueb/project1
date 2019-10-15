@@ -37,8 +37,6 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
         beerListModal.attr('href', '#beer-list-modal');
         beerListModal.attr('rel', 'modal:open');
         beerListModal.attr('id', 'modal-test');
-        // beerListModal.attr('data-toggle', 'modal');
-        // beerListModal.attr('data-target', '#beer-list-modal');
         beerListModal.text('Beer List');
 
         var newBrewSection = $('<div>').append(
@@ -51,8 +49,6 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
             $('<p>').text('Site: ' + responseBody[0].website_url),
             beerListModal
         )
-
-        
 
         newBrewSection.attr('id','brewery-result');
         $('#resultsArea').append(newBrewSection);
@@ -131,7 +127,6 @@ function displayBeerList(response){
     }
        
         $('#beer-table > tbody').append(beerListTable());
-
         
     }
     
