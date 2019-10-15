@@ -2,13 +2,16 @@
     text-align: center;
     padding: 20px;
     border: 10px;
-
+    font-family: 'Oleo Script Swash Caps', cursive;
+    font-size: 100pt; 
+    color: rgb(212, 135, 45);
 }
 
 body{
     background-image: url("../images/beer.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    font-family:"Goudy Old Style", Garamond, "Big Caslon", "Times New Roman", serif;
 }
 
 
@@ -18,9 +21,8 @@ body{
     padding: 20px;
     margin:10px;
 }
-.button{
-    color: aliceblue;
-}
+
+
 #dropDown{
     padding:20px;
     margin:10px;
