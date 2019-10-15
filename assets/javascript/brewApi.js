@@ -9,7 +9,7 @@ var key = 'd3ce3953f3ce707f75971d6af7b1053c';
 var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
 
 
-// Functions
+// Functions /////
 ///////////////////////////////////////////////////////////////////////////
 
 
