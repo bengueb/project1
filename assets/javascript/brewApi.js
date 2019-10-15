@@ -46,7 +46,7 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
         
 
         newBrewSection.attr('id','brewery-result');
-        $('#resultsArea').appendgit (newBrewSection);
+        $('#resultsArea').append(newBrewSection);
     
     });
 
