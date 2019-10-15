@@ -16,8 +16,7 @@ $(document).ready(function(){
 
         displayBreweryInfo(breweryName);
         getBrewery(breweryName);
-        getBreweryByName(breweryName)
-        
+        getBreweryByName(breweryName);        
     });
  
 });
@@ -45,7 +44,7 @@ $(document).ready(function(){
         )
 
         newBrewSection.attr('id','brewery-result');
-        $('#bearlist-result').append(newBrewSection);
+        $('#beerlist-result').append(newBrewSection);
     
     });
 
