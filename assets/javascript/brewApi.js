@@ -1,23 +1,6 @@
-// Function for AJAX call to Brewery DB API
-$(document).ready(function(){
 
-    // Event listner for brewMe button
-    $('#brewMe').on('click', function(event){
-
-        event.preventDefault();
-
-        $('#results').empty();
-
-        var breweryName = $('#brew-search').val().trim();
-
-        displayBreweryInfo(breweryName);
-        getBrewery(breweryName);
-        
-
-    });
-
-    
-});
+// Variables
+////////////////////////////////////////////////////////////////////////////
 
 var brewId = [];
 var beerName = '';
@@ -26,8 +9,11 @@ var key = 'd3ce3953f3ce707f75971d6af7b1053c';
 var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
 
 
+// Functions
+///////////////////////////////////////////////////////////////////////////
 
- // AJAX call to retrieve data regarding the brewery
+
+ // AJAX call to retrieve data regarding the brewery using OpenBrewery DB API
  function displayBreweryInfo (arr){
 
     var queryURL = 'https://api.openbrewerydb.org/breweries?by_name=' + arr;
@@ -67,10 +53,10 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
     
 }
 
-// AJAX call to get beer list from a particular brewery
+
+// AJAX call to get beer list from a particular brewery using BreweryBD API
 function getBrewery (arr) {
 
-    // var queryURL = 'https://sandbox-api.brewerydb.com/v2/breweries?key=' + key + '&name=Harmon%20Brewing%20Company';
     var queryURL = 'https://sandbox-api.brewerydb.com/v2/breweries?key=' + key + '&name=' + encodeURI(arr);
 
     $.ajax({
@@ -82,6 +68,7 @@ function getBrewery (arr) {
     });
 }
 
+// Function to handle the AJAX Call Response
 function handleResponse(response){
 
     var responseBody = JSON.stringify(response);
@@ -95,6 +82,8 @@ function handleResponse(response){
 
 }
 
+
+// Function to call API to get current beer list
 function getBeerList (arr){
 
     var queryURL = baseUrl + 'brewery/' + brewId + '/beers?key=' + key;
@@ -110,6 +99,7 @@ function getBeerList (arr){
     
 }
 
+// Function to get current beer list 
 function displayBeerList(response){
 
     var responseBody = response;
@@ -130,8 +120,7 @@ function displayBeerList(response){
         tRow.append(beerTd, abvTd);
         $('#beer-table').append(tRow);
     }
-        // $('#beerlist-result').append('<p>' + beerName + '</p>');
-        // $('.modal-body').append('<p>' + beerName + '</p>');
+       
         $('#beer-table > tbody').append(beerListTable());
 
         
