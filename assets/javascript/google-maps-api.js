@@ -135,7 +135,7 @@ function createMarker(place) {
             var date = new Date();
             let hours = '<p><i class="fas fa-clock"></i> ' + result.opening_hours.weekday_text[date.getDay()] + '</p>';
             let phoneNumber = '<p><i class="fas fa-phone"></i> ' + result.formatted_phone_number + '</p>';
-            let website = '<p><i class="fas fa-window-maximize"></i> ' + result.website + '</p>';
+            let website = '<i class="fas fa-window-maximize"><a href="' + result.website + '"></i> ' + result.website + '</a>';
             let picture = '<img class="place-image" src="' + result.photos[0].getUrl() + '" />';
             let containerBeginning = '<div class="container">';
             let columns = '<div class="row"><div class="col-6">' + name + address + hours + phoneNumber + website + '</div><div class="col-6">' + picture + '</div></div>';
