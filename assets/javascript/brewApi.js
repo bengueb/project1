@@ -12,6 +12,17 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
 // Functions
 ///////////////////////////////////////////////////////////////////////////
 
+<<<<<<< HEAD
+=======
+        var breweryName = $('#brew-search').val().trim();
+
+        displayBreweryInfo(breweryName);
+        getBrewery(breweryName);
+        getBreweryByName(breweryName);        
+    });
+ 
+});
+>>>>>>> 7692902eb2eac2f420398ed49702dce94e0ddb60
 
  // AJAX call to retrieve data regarding the brewery using OpenBrewery DB API
  function displayBreweryInfo (arr){
@@ -46,7 +57,11 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
         
 
         newBrewSection.attr('id','brewery-result');
+<<<<<<< HEAD
         $('#resultsArea').prepend(newBrewSection);
+=======
+        $('#beerlist-result').append(newBrewSection);
+>>>>>>> 7692902eb2eac2f420398ed49702dce94e0ddb60
     
     });
 
