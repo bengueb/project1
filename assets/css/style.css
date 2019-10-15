@@ -60,6 +60,7 @@ body{
 .btn{
   background-color: rgb(212, 135, 45);
   color: whitesmoke;
+  text-align: center;
 }
 
 .input-group-text{
