@@ -25,11 +25,20 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
         
         var responseBody = response;
 
-        var beerListModal = $('<button>');
-        beerListModal.attr('type', 'button');
+        // var beerListModal = $('<button>');
+        // beerListModal.attr('type', 'button');
+        // beerListModal.addClass('btn btn-primary beer-list-btn');
+        // beerListModal.attr('data-toggle', 'modal');
+        // beerListModal.attr('data-target', '#beer-list-modal');
+        // beerListModal.text('Beer List');
+
+        var beerListModal = $('<a>');
         beerListModal.addClass('btn btn-primary beer-list-btn');
-        beerListModal.attr('data-toggle', 'modal');
-        beerListModal.attr('data-target', '#beer-list-modal');
+        beerListModal.attr('href', '#beer-list-modal');
+        beerListModal.attr('rel', 'modal:open');
+        beerListModal.attr('id', 'modal-test');
+        // beerListModal.attr('data-toggle', 'modal');
+        // beerListModal.attr('data-target', '#beer-list-modal');
         beerListModal.text('Beer List');
 
         var newBrewSection = $('<div>').append(

@@ -72,7 +72,12 @@ body{
     display: inline-block;
 }
 
-.modal-body{
+/* .modal-body{
     max-height: 300px;
+    overflow-y: auto;
+} */
+
+#beer-list-modal{
+    max-height: 350px;
     overflow-y: auto;
 }
