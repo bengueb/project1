@@ -5,7 +5,7 @@
 var brewId = [];
 var beerName = '';
 var i, obj;
-var key = 'd3ce3953f3ce707f75971d6af7b1053c';
+var key = '';
 var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
 
 
@@ -51,7 +51,7 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
         )
 
         newBrewSection.attr('id','brewery-result');
-        $('#resultsArea').append(newBrewSection);
+        $('#beerlist-result').append(newBrewSection);
     
     });
 

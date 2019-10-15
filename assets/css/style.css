@@ -51,9 +51,10 @@ body{
    float:left;
 }
 
-#beerlist-results{
+#beerlist-result{
    width: 50%;
    float:right;
+   display: inline-block
 }
 
 .btn{
