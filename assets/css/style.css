@@ -30,6 +30,9 @@ body{
    
 }
 
+.dropdown-toggle{
+    width: 538px;
+}
 
 #map-results {
     height: 450px;  
@@ -54,8 +57,7 @@ body{
 
 #beerlist-result{
    width: 50%;
-   float:right;
-   display: inline-block;
+   float: right;
    background-color:  rgba(245,245,245, .9);
 }
 
@@ -76,10 +78,6 @@ body{
     background-color: rgb(212, 135, 45);
 }
 
-/* .modal-body{
-    max-height: 300px;
-    overflow-y: auto;
-} */
 
 #beer-list-modal{
     max-height: 350px;
