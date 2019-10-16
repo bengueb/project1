@@ -46,7 +46,7 @@ var baseUrl = 'https://sandbox-api.brewerydb.com/v2/';
             $('<p>').text('State: ' + responseBody[0].state),
             $('<p>').text('Postal Code: ' + responseBody[0].postal_code),
             $('<p>').text('Phone: ' + responseBody[0].phone),
-            $('<p>').text('Site: ' + responseBody[0].website_url),
+            $('<p>').html('Site: <a href=' + responseBody[0].website_url + ' target="_blank">' + responseBody[0].website_url + '</a>'),
             beerListModal
         )
 
