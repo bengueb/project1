@@ -3,6 +3,8 @@
 
 $(document).ready(function() {
     $('.dropdown-item').on('click', function(event) {
+
+        $('#beerlist-result').empty();
         let longitude = $(event.target).data('long');
         let latitude = $(event.target).data('lat');
         getBreweries(longitude, latitude);
@@ -16,7 +18,7 @@ $(document).ready(function() {
         $('#beerlist-result').empty();
 
         var breweryName = $('#brew-search').val().trim();
-        $('brew-search').val('');
+        $('#brew-search').val('');
 
         displayBreweryInfo(breweryName);
         getBrewery(breweryName);
