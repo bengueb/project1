@@ -129,20 +129,27 @@ function createMarker(place) {
 
     // Make a call to the places API to get more details about a given brewery
     service.getDetails(request, function(result, status) {
-        console.log(result)
-        google.maps.event.addListener(marker, 'mouseover', function() {
+        function setInfoWindowDetails(result) {
             let name = '<h3>' + result.name + '</h3>';
             let address = '<p><i class="fas fa-map-marker-alt"></i> ' + result.formatted_address + '</p>';
             var date = new Date();
             let hours = '<p><i class="fas fa-clock"></i> ' + result.opening_hours.weekday_text[date.getDay()] + '</p>';
             let phoneNumber = '<p><i class="fas fa-phone"></i> ' + result.formatted_phone_number + '</p>';
-            let website = '<i class="fas fa-window-maximize"><a href="' + result.website + '"></i> ' + result.website + '</a>';
-            let picture = '<img class="place-image" src="' + result.photos[0].getUrl() + '" />';
+            let website = '<p><i class="fas fa-window-maximize"></i><a href="' + result.website + '"> ' + result.website + '</a></p>';
+            let directionsLink = 'https://www.google.com/maps/dir/?api=1&destination=' + result.name.replace(' ', '+');
+            let directions = '<p><i class="fas fa-directions"></i><a href="' + directionsLink + '"> Get Directions</a></p>';
+            let picture = '<img class="place-image img-fluid" src="' + result.photos[0].getUrl() + '" />';
             let containerBeginning = '<div class="container">';
-            let columns = '<div class="row"><div class="col-6">' + name + address + hours + phoneNumber + website + '</div><div class="col-6">' + picture + '</div></div>';
+            let columns = '<div class="row"><div class="col-6">' + name + address + hours + phoneNumber + website + directions + '</div><div class="col-6">' + picture + '</div></div>';
             let containerEnd = '</div class="container">' 
             infowindow.setContent(containerBeginning + columns + containerEnd);
             infowindow.open(map, marker);
+        }        
+        google.maps.event.addListener(marker, 'click', function() {
+            setInfoWindowDetails(result, marker);
+        });
+        google.maps.event.addListener(marker, 'mouseover', function() {
+            setInfoWindowDetails(result, marker);
         });
     });
 }
