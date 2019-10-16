@@ -30,6 +30,9 @@ body{
    
 }
 
+.dropdown-toggle{
+    width: 538px;
+}
 
 #map-results {
     height: 450px;  
