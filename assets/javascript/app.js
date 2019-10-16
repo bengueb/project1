@@ -16,7 +16,7 @@ $(document).ready(function() {
         $('#beerlist-result').empty();
 
         var breweryName = $('#brew-search').val().trim();
-        $('brew-search').val('');
+        $('#brew-search').val('');
 
         displayBreweryInfo(breweryName);
         getBrewery(breweryName);
