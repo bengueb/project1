@@ -23,7 +23,7 @@ Our application is going to take inputs such a s a brewery name, location (poten
   * Google Cloud Vision (Bonus feature)
   
 **CSS Stylings**
-  * Material UI
+  * Bootstrap
 
 **Task Breakdown**
   * Elsa - UI design
