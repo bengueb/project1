@@ -78,7 +78,9 @@ function handleResponse(response){
 
     var responseBody = JSON.stringify(response);
     obj = JSON.parse(responseBody);
-        
+    
+    brewId = [];
+
     brewId.push(obj.data[0].id);
 
     console.log(brewId);
@@ -106,6 +108,8 @@ function getBeerList (arr){
 
 // Function to get current beer list and display it as a table in the beer list
 function displayBeerList(response){
+
+    $('#beerlist-body').empty();
 
     var responseBody = response;
 
